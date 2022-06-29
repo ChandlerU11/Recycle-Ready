@@ -109,6 +109,7 @@ def get_image_features(img):
 @st.cache()
 def predict(img, model):
     img_vec = get_image_features(img)
+    return img_vec
 
 if __name__ == '__main__':
     #model = load_model()
@@ -140,7 +141,7 @@ if __name__ == '__main__':
 
     if file:  # if user uploaded file
         img = Image.open(file)
-        prediction = predict(img, model)
+        prediction = predict(img)
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
