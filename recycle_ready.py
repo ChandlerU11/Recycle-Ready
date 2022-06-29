@@ -123,7 +123,7 @@ if __name__ == '__main__':
     #types_of_birds = sorted(list(all_image_files['test'].keys()))
     #types_of_birds = [bird.title() for bird in types_of_birds]
 
-    st.title('Welcome To Project Eagle Vision!')
+    st.title('Welcome To Recycle Ready!')
     instructions = """
         Either upload your own image or select from
         the sidebar to get a preconfigured image.
