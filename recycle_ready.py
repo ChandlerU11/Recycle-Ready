@@ -20,7 +20,7 @@ import pickle
 
 #@st.cache()
 #def load_model(path: str = 'recycle_log_reg.pkl'):
-    """Retrieves the trained model and maps it to the CPU by default,
+   # """Retrieves the trained model and maps it to the CPU by default,
    #     can also specify GPU here."""
     #model = ResnetModel(path_to_pretrained_model=path)
 #    loaded_model = pickle.load(open(path, 'rb'))
