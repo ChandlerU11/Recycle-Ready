@@ -13,15 +13,16 @@ import numpy as np
 
 import clip
 import torch
+import pickle
 #from resnet_model import ResnetModel
 
 
-# @st.cache()
-# def load_model(path: str = 'models/trained_model_resnet50.pt') -> ResnetModel:
-#     """Retrieves the trained model and maps it to the CPU by default,
-#     can also specify GPU here."""
-#     model = ResnetModel(path_to_pretrained_model=path)
-#     return model
+@st.cache()
+def load_model():
+    """Retrieves the trained model and maps it to the CPU by default,
+    can also specify GPU here."""
+    model = pickle.load( open( "models/recycle_log_reg.pkl", "rb" ) )
+    return model
 
 
 # @st.cache()
@@ -110,6 +111,9 @@ def get_image_features(img):
 @st.cache()
 def predict(img):
     img_vec = get_image_features(img)
+    classifier = load_model()
+    test = torch.cat(img_vec).cpu().numpy()
+    classifier.predict(test)
     return img_vec
 
 if __name__ == '__main__':
