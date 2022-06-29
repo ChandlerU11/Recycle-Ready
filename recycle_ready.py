@@ -14,15 +14,18 @@ import numpy as np
 import clip
 import torch
 from sklearn.linear_model import LogisticRegression
+import pickle
 #from resnet_model import ResnetModel
 
 
- @st.cache()
- def load_model(path: str = 'models/trained_model_resnet50.pt') -> ResnetModel:
-     """Retrieves the trained model and maps it to the CPU by default,
-#     can also specify GPU here."""
-     model = ResnetModel(path_to_pretrained_model=path)
-     return model
+@st.cache()
+def load_model(path: str = 'recycle_log_reg.pkl'):
+    """Retrieves the trained model and maps it to the CPU by default,
+   #     can also specify GPU here."""
+    #model = ResnetModel(path_to_pretrained_model=path)
+    loaded_model = pickle.load(open(path, 'rb'))
+    return loaded_model
+
 
 
 # @st.cache()
