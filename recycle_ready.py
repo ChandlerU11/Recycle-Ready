@@ -13,19 +13,15 @@ import numpy as np
 
 import clip
 import torch
-from sklearn.linear_model import LogisticRegression
-import pickle
 #from resnet_model import ResnetModel
 
 
-#@st.cache()
-#def load_model(path: str = 'recycle_log_reg.pkl'):
-   # """Retrieves the trained model and maps it to the CPU by default,
-   #     can also specify GPU here."""
-    #model = ResnetModel(path_to_pretrained_model=path)
-#    loaded_model = pickle.load(open(path, 'rb'))
- #   return loaded_model
-
+# @st.cache()
+# def load_model(path: str = 'models/trained_model_resnet50.pt') -> ResnetModel:
+#     """Retrieves the trained model and maps it to the CPU by default,
+#     can also specify GPU here."""
+#     model = ResnetModel(path_to_pretrained_model=path)
+#     return model
 
 
 # @st.cache()
@@ -111,11 +107,8 @@ def get_image_features(img):
     return image_vectors
 
 @st.cache()
-def predict(img):
+def predict(img, model):
     img_vec = get_image_features(img)
-    classifier = load_model()
-    test = torch.cat(img_vec).cpu().numpy()
-    return classifier.predict(test)
 
 if __name__ == '__main__':
     #model = load_model()
@@ -147,8 +140,7 @@ if __name__ == '__main__':
 
     if file:  # if user uploaded file
         img = Image.open(file)
-        prediction = predict(img)
-        st.write(str(prediction[0]))
+        prediction = predict(img, model)
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
