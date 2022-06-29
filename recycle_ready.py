@@ -147,6 +147,9 @@ if __name__ == '__main__':
     if file:  # if user uploaded file
         img = Image.open(file)
         prediction = predict(img)
+        st.title("Here is the image you've selected")
+        resized_image = img.resize((336, 336))
+        st.image(resized_image)
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
@@ -158,9 +161,9 @@ if __name__ == '__main__':
     #         files_to_get_from_s3.append(path)
     #     images_from_s3 = load_files_from_s3(keys=files_to_get_from_s3)
 
-    # else:
-    #     dataset_type = st.sidebar.selectbox(
-    #         "Data Portion Type", data_split_names)
+    else:
+        dataset_type = st.sidebar.selectbox(
+             "Data Portion Type", data_split_names)
     #     image_files_subset = dtype_file_structure_mapping[dataset_type]
 
     #     selected_species = st.sidebar.selectbox("Bird Type", types_of_birds)
