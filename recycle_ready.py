@@ -18,13 +18,13 @@ import pickle
 #from resnet_model import ResnetModel
 
 
-@st.cache()
-def load_model(path: str = 'recycle_log_reg.pkl'):
+#@st.cache()
+#def load_model(path: str = 'recycle_log_reg.pkl'):
     """Retrieves the trained model and maps it to the CPU by default,
    #     can also specify GPU here."""
     #model = ResnetModel(path_to_pretrained_model=path)
-    loaded_model = pickle.load(open(path, 'rb'))
-    return loaded_model
+#    loaded_model = pickle.load(open(path, 'rb'))
+ #   return loaded_model
 
 
 
@@ -113,9 +113,9 @@ def get_image_features(img):
 @st.cache()
 def predict(img):
     img_vec = get_image_features(img)
-    log_reg = load_model()
-    
-    
+    classifier = load_model()
+    test = torch.cat(img_vec).cpu().numpy()
+    return classifier.predict(test)
 
 if __name__ == '__main__':
     #model = load_model()
@@ -148,6 +148,7 @@ if __name__ == '__main__':
     if file:  # if user uploaded file
         img = Image.open(file)
         prediction = predict(img)
+        st.write(str(prediction[0]))
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
