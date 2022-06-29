@@ -101,8 +101,9 @@ import torch
 @st.cache()
 def get_image_features(img):
     image_vectors = []
+    image = preprocess(img).unsqueeze(0).to(device)
     with torch.no_grad():
-        feats = model.encode_image(img)
+        feats = model.encode_image(image)
         image_vectors.append(feats)
     return image_vectors
 
@@ -178,7 +179,7 @@ if __name__ == '__main__':
     #     img = images_from_s3.pop(0)
     #     prediction = predict(img, index_to_class_label_dict, model, 5)
 
-    st.title("Here is the image you've selected")
+    #st.title("Here is the image you've selected")
     #resized_image = img.resize((336, 336))
     #st.image(resized_image)
     # st.title("Here are the five most likely bird species")
