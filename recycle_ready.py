@@ -114,7 +114,7 @@ def get_image_features(img):
 def predict(img):
     img_vec = get_image_features(img)
     classifier = load_model()
-    test = torch.cat(img_vec).cpu().numpy()
+    test = torch.cat(get_image_features_c('drive/MyDrive/Colab Notebooks/A7/test_bottle')).cpu().numpy()
     return classifier.predict(test)
 
 if __name__ == '__main__':
