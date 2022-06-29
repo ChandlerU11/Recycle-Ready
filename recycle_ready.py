@@ -123,6 +123,7 @@ if __name__ == '__main__':
         'Images Used To Tune The Model': 'valid',
         'Images The Model Has Never Seen': 'test'
     }
+    model, preprocess = clip.load('ViT-B/32', device = device)
     # data_split_names = list(dtype_file_structure_mapping.keys())
 
     # if file:  # if user uploaded file
