@@ -111,8 +111,11 @@ def get_image_features(img):
     return image_vectors
 
 @st.cache()
-def predict(img, model):
+def predict(img):
     img_vec = get_image_features(img)
+    classifier = load_model()
+    test = torch.cat(get_image_features_c('drive/MyDrive/Colab Notebooks/A7/test_bottle')).cpu().numpy()
+    return classifier.predict(test)
 
 if __name__ == '__main__':
     #model = load_model()
@@ -144,7 +147,8 @@ if __name__ == '__main__':
 
     if file:  # if user uploaded file
         img = Image.open(file)
-        prediction = predict(img, model)
+        prediction = predict(img)
+        st.write(str(prediction[0]))
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
