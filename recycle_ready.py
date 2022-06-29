@@ -13,15 +13,16 @@ import numpy as np
 
 import clip
 import torch
+from sklearn.linear_model import LogisticRegression
 #from resnet_model import ResnetModel
 
 
-# @st.cache()
-# def load_model(path: str = 'models/trained_model_resnet50.pt') -> ResnetModel:
-#     """Retrieves the trained model and maps it to the CPU by default,
+ @st.cache()
+ def load_model(path: str = 'models/trained_model_resnet50.pt') -> ResnetModel:
+     """Retrieves the trained model and maps it to the CPU by default,
 #     can also specify GPU here."""
-#     model = ResnetModel(path_to_pretrained_model=path)
-#     return model
+     model = ResnetModel(path_to_pretrained_model=path)
+     return model
 
 
 # @st.cache()
