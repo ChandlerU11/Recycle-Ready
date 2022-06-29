@@ -3,9 +3,18 @@ from io import BytesIO
 from PIL import Image
 import os
 
+#import boto3
+#from botocore import UNSIGNED  # contact public s3 buckets anonymously
+#from botocore.client import Config  # contact public s3 buckets anonymously
+
 import streamlit as st
 import pandas as pd
 import numpy as np
+
+import clip
+import torch
+#from resnet_model import ResnetModel
+
 
 # @st.cache()
 # def load_model(path: str = 'models/trained_model_resnet50.pt') -> ResnetModel:
@@ -89,6 +98,18 @@ import numpy as np
 #     formatted_predictions = model.predict_proba(img, k, index_to_label_dict)
 #     return formatted_predictions
 
+@st.cache()
+def get_image_features(img):
+    image_vectors = []
+    with torch.no_grad():
+        feats = model.encode_image(img)
+        image_vectors.append(feats)
+    return image_vectors
+
+@st.cache()
+def predict(img):
+    img_vec = get_image_features(img)
+    return img_vec
 
 if __name__ == '__main__':
     #model = load_model()
@@ -114,11 +135,14 @@ if __name__ == '__main__':
         'Images Used To Tune The Model': 'valid',
         'Images The Model Has Never Seen': 'test'
     }
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model, preprocess = clip.load('ViT-B/32', device = device)
     # data_split_names = list(dtype_file_structure_mapping.keys())
 
-    # if file:  # if user uploaded file
-    #     img = Image.open(file)
-    #     prediction = predict(img, index_to_class_label_dict, model, k=5)
+    if file:  # if user uploaded file
+        img = Image.open(file)
+        prediction = predict(img)
+        st.write(str(len(prediction)))
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
