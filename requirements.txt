@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 $ pip install git+https://github.com/openai/CLIP.git
+=======
+git+https://github.com/openai/CLIP.git
+>>>>>>> 5ca5822ae9f909f44699f66e276f33aca014fd8b
