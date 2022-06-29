@@ -141,8 +141,8 @@ if __name__ == '__main__':
 
     if file:  # if user uploaded file
         img = Image.open(file)
-        prediction = predict(img)
-        st.write(str(len(prediction)))
+        #prediction = predict(img)
+        #st.write(str(len(prediction)))
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
@@ -179,9 +179,9 @@ if __name__ == '__main__':
     #     img = images_from_s3.pop(0)
     #     prediction = predict(img, index_to_class_label_dict, model, 5)
 
-    # st.title("Here is the image you've selected")
-    # resized_image = img.resize((336, 336))
-    # st.image(resized_image)
+     st.title("Here is the image you've selected")
+     resized_image = img.resize((336, 336))
+     st.image(resized_image)
     # st.title("Here are the five most likely bird species")
     # df = pd.DataFrame(data=np.zeros((5, 2)),
     #                   columns=['Species', 'Confidence Level'],
