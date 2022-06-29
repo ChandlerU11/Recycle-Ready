@@ -1,1 +1,2 @@
 git+https://github.com/openai/CLIP.git
+scikit-learn===1.1.1
