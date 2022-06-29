@@ -143,7 +143,6 @@ if __name__ == '__main__':
     if file:  # if user uploaded file
         img = Image.open(file)
         prediction = predict(img)
-    st.write(str(len(prediction)))
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
