@@ -136,7 +136,7 @@ if __name__ == '__main__':
         'Images Used To Tune The Model': 'valid',
         'Images The Model Has Never Seen': 'test'
     }
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cpu"
     model, preprocess = clip.load('ViT-B/32', device = device)
     # data_split_names = list(dtype_file_structure_mapping.keys())
 
