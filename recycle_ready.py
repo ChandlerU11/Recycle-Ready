@@ -179,8 +179,8 @@ if __name__ == '__main__':
     #     prediction = predict(img, index_to_class_label_dict, model, 5)
 
     st.title("Here is the image you've selected")
-    resized_image = img.resize((336, 336))
-    st.image(resized_image)
+    #resized_image = img.resize((336, 336))
+    #st.image(resized_image)
     # st.title("Here are the five most likely bird species")
     # df = pd.DataFrame(data=np.zeros((5, 2)),
     #                   columns=['Species', 'Confidence Level'],
