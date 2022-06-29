@@ -21,7 +21,7 @@ import pickle
 def load_model():
     """Retrieves the trained model and maps it to the CPU by default,
     can also specify GPU here."""
-    model = pickle.load( open( "models/recycle_log_reg.pkl", "rb" ) )
+    model = pickle.load(open( "models/recycle_log_reg.pkl", "rb" ))
     return model
 
 
@@ -113,8 +113,8 @@ def predict(img):
     img_vec = get_image_features(img)
     classifier = load_model()
     test = torch.cat(img_vec).cpu().numpy()
-    classifier.predict(test)
-    return img_vec
+    pred = classifier.predict(test)
+    return pred
 
 if __name__ == '__main__':
     #model = load_model()
