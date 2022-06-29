@@ -11,6 +11,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+!pip install git+https://github.com/openai/CLIP.git
+
 import clip
 import torch
 #from resnet_model import ResnetModel
