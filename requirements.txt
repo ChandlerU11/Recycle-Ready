@@ -1,6 +1,6 @@
 git+https://github.com/openai/CLIP.git
 scikit-learn===1.1.1
-streamlit==1.4.0
+streamlit==1.10.0
 Pillow==9.0.0
 
 -f https://download.pytorch.org/whl/torch_stable.html
