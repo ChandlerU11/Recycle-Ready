@@ -11,10 +11,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-from tensorflow.keras.applications import VGG19
-from tensorflow.keras.applications.vgg19 import preprocess_input
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import Model
+import clip
+import torch
 #from resnet_model import ResnetModel
 
 
