@@ -150,7 +150,7 @@ if __name__ == '__main__':
         st.title("Here is the image you've selected")
         resized_image = img.resize((336, 336))
         st.image(resized_image)
-        st.caption(str(prediction[0]))
+        st.caption(prediction)
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
