@@ -138,9 +138,9 @@ if __name__ == '__main__':
     model, preprocess = clip.load('ViT-B/32', device = device)
     # data_split_names = list(dtype_file_structure_mapping.keys())
 
-     if file:  # if user uploaded file
-         img = Image.open(file)
-         prediction = predict(img, model)
+    if file:  # if user uploaded file
+        img = Image.open(file)
+        prediction = predict(img, model)
     #     top_prediction = prediction[0][0]
     #     available_images = all_image_files.get(
     #         'train').get(top_prediction.upper())
