@@ -11,7 +11,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-from resnet_model import ResnetModel
+#from resnet_model import ResnetModel
 
 
 # @st.cache()
