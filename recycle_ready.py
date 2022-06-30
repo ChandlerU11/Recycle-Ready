@@ -41,7 +41,7 @@ instructions = """
     recyclable item and 2) what steps you may need to take for 
     your item to be Recyle Ready.
 
-    App currently only works for plastic bottles.
+    *App currently only works for plastic bottles.
     """
 st.write(instructions)
 
@@ -55,4 +55,15 @@ if file:  # if user uploaded file
     st.title("Here is the image you've selected")
     resized_image = img.resize((336, 336))
     st.image(resized_image)
-    st.caption(prediction)
+    if prediction[0] == 1:
+        woohoo = """
+        Congrats! Your item is ready for recycling. Throw it
+        in the recycle bin and pat yourself on the back. 
+        """
+        st.write(woohoo)
+    else:
+        dang = """
+        This item is either not recyclable, or it needs a little more work.
+        *Insert directions based on type. 
+        """
+        st.write(woohoo)
