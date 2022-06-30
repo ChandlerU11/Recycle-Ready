@@ -32,19 +32,20 @@ def predict(img):
     pred = classifier.predict(test)
     return pred
 
-st.title(':earth_americas: Recycle Ready Machine')
+st.title(':earth_americas: Recycle Ready')
 instructions = """
-    Upload a photo. 
+    An app to help you follow the "often confusing" rules
+    recycling. All recomendations are based on EPA guidelines although 
+    recycling rules vary by location. Simply upload an image of
+    your item, and the app will tell you if 1) it this is a 
+    recyclable item and 2) what steps you may need to take for 
+    your item to be Recyle Ready.
+
+    App currently only works for plastic bottles.
     """
 st.write(instructions)
 
-file = st.file_uploader('Upload An Image')
-dtype_file_structure_mapping = {
-    'All Images': 'consolidated',
-    'Images Used To Train The Model': 'train',
-    'Images Used To Tune The Model': 'valid',
-    'Images The Model Has Never Seen': 'test'
-}
+file = st.file_uploader('Upload an Image OR Take a Photo')
 device = "cpu"
 model, preprocess = clip.load('ViT-B/32', device = device)
 
