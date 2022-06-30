@@ -34,8 +34,8 @@ def predict(img):
 
 st.title(':earth_americas: Recycle Ready')
 instructions = """
-    An app to help you follow the "often confusing" rules
-    recycling. All recomendations are based on EPA guidelines although 
+    An app to help you follow the *often confusing* rules
+    of recycling. All recomendations are based on EPA guidelines although 
     recycling rules vary by location. Simply upload an image of
     your item, and the app will tell you if 1) it this is a 
     recyclable item and 2) what steps you may need to take for 
@@ -52,9 +52,9 @@ model, preprocess = clip.load('ViT-B/32', device = device)
 if file:  # if user uploaded file
     img = Image.open(file)
     prediction = predict(img)
-    st.title("Here is the image you've selected")
-    resized_image = img.resize((336, 336))
-    st.image(resized_image)
+    st.title("Your Item")
+    #resized_image = img.resize((336, 336))
+    st.image(img)
     if prediction[0] == 1:
         woohoo = """
         Congrats! Your item is ready for recycling. Throw it
