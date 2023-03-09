@@ -66,4 +66,4 @@ if file:  # if user uploaded file
         This item is either not recyclable, or it needs a little more work.
         *Insert directions based on type. 
         """
-        st.write(woohoo)
+        st.write(dang)
